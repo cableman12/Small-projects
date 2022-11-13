@@ -1,0 +1,48 @@
+#include <stdio.h>
+#define MAX 10
+int main(void)
+{ 
+   // initialize array a with initializer list
+   int a[MAX] = { 1, 2, 3, 4, 5, 10, 9, 8, 7, 6 };
+   puts("Data items in original order");
+   // display original, unsorted array
+   for (unsigned int i = 0; i < MAX; i++) {
+      printf("%4d", a[i]);
+   } 
+   printf("\n\n");
+   // begin sorting the array
+   for (unsigned int pass = 1; pass < MAX; 
+pass++) { 
+      int swap = 0;
+      // traverse and compare unsorted part 
+of array
+      for (unsigned int i = 0; i < MAX - pass; 
+i++) {
+         // compare adjacent array elements
+         if (a[i] > a[i + 1]) { 
+            swap = 1; // raise flag if any 
+elements are swapped
+            int hold = a[i];
+            a[i] = a[i + 1];
+            a[i + 1] = hold;
+         } 
+      } 
+      printf("After Pass %d: ", pass);
+      // display array after each pass
+      for (unsigned int i = 0; i <= MAX-pass; 
+i++) {
+         printf("  %d", a[i]); 
+      } 
+      printf("\n");
+      // break loop if array is sorted
+      if (!swap) {
+         break;
+      } 
+   } 
+   puts("\nData items in ascending order");
+   // display array in sorted order
+   for (unsigned int i = 0; i < 10; i++) {
+      printf("%4d", a[i]);
+   } 
+   puts("");
+} 
